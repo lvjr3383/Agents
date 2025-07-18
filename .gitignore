@@ -1,0 +1,13 @@
+# Python virtual environment
+.venv/
+
+# Environment variables (contains secrets!)
+.env
+
+# Chat logs folder
+chat_logs/
+
+# IDE and OS files
+.vscode/
+__pycache__/
+.DS_Store
