@@ -11,3 +11,8 @@ chat_logs/
 .vscode/
 __pycache__/
 .DS_Store
+.venv/
+.env
+__pycache__/
+chat_logs/
+*.pyc
