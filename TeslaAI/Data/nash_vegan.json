@@ -1,0 +1,80 @@
+{
+    "collection": "nash_vegan",
+    "city": "Nashville, TN",
+    "places": [
+      {
+        "id": "succulent-tacos",
+        "name": "Succulent Tacos",
+        "address": "900 Rosa L Parks Blvd, Nashville, TN 37208",
+        "diet": ["vegan"],
+        "summary": "Plant-based tacos, esquites (creamy Mexican corn), and Mexican sodas.",
+        "tags": ["tacos", "mexican", "casual"]
+      },
+      {
+        "id": "avo",
+        "name": "AVO",
+        "address": "3 City Ave #200, Nashville, TN 37209",
+        "diet": ["vegan"],
+        "summary": "Creative whole-foods menu with many raw and cooked, globally inspired dishes in a container village setting.",
+        "tags": ["raw", "whole-foods", "global"]
+      },
+      {
+        "id": "woodlands-indian-vegetarian-restaurant",
+        "name": "Woodlands Indian Vegetarian Restaurant",
+        "address": "3415 West End Ave, Nashville, TN 37203",
+        "diet": ["vegetarian", "vegan-friendly"],
+        "summary": "Large lineup of vegan options at a classic Indian spot. Don’t miss the pakoras.",
+        "tags": ["indian", "vegetarian", "vegan-options"]
+      },
+      {
+        "id": "graze",
+        "name": "Graze",
+        "address": "1888 Eastland Ave, Nashville, TN 37206",
+        "diet": ["vegan"],
+        "summary": "Spicy hot tempeh sandwich, nachos supreme, salads, and more—something for everyone.",
+        "tags": ["comfort", "sandwiches", "east-nashville"]
+      },
+      {
+        "id": "sunflower-cafe",
+        "name": "Sunflower Café",
+        "address": "2834 Azalea Pl, Nashville, TN 37204",
+        "diet": ["vegan"],
+        "summary": "Cheery café with burgers, wraps, bowls, nachos; soy- and gluten-free friendly.",
+        "tags": ["cafe", "bowls", "allergen-friendly"]
+      },
+      {
+        "id": "grins-vegetarian-cafe",
+        "name": "Grins Vegetarian Cafe",
+        "address": "2421 Vanderbilt Pl, Nashville, TN 37212",
+        "diet": ["vegetarian", "vegan-friendly", "kosher"],
+        "summary": "Nashville’s oldest vegetarian (and kosher) restaurant on Vanderbilt’s campus. Loved for house-made sandwiches, soups, and cookies.",
+        "tags": ["campus", "sandwiches", "soups", "bakery"]
+      },
+      {
+        "id": "vegelicious",
+        "name": "Vegelicious",
+        "address": "513B Fisk St, Nashville, TN 37203",
+        "diet": ["vegan"],
+        "summary": "Comfort-food favorites like Po’Boys, gyros, lasagna, and more.",
+        "tags": ["comfort", "po-boys", "gyros", "lasagna"]
+      },
+      {
+        "id": "guerrilla-bizkits",
+        "name": "Guerrilla Bizkits",
+        "address": "1006 Fatherland St Suite 207, Nashville, TN 37206",
+        "diet": ["vegan"],
+        "summary": "Punk-rock biscuit spot with three signature biscuit flavors—great solo or as breakfast sandwiches.",
+        "tags": ["biscuits", "breakfast", "east-nashville"]
+      },
+      {
+        "id": "e-and-rose-wellness-cafe",
+        "name": "E + Rose Wellness Café",
+        "address": "Multiple locations throughout Nashville",
+        "diet": ["vegan-friendly"],
+        "summary": "Chic juice bar for toast, superfood smoothies, and smoothie bowls. Menus vary by location.",
+        "tags": ["juice-bar", "smoothies", "bowls", "multiple-locations"],
+        "notes": "Check specific location menus before visiting."
+      }
+    ]
+  }
+  

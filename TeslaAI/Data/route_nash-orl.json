@@ -1,0 +1,152 @@
+{
+  "origin": "Nashville, TN, USA",
+  "destination": "Orlando, FL, USA",
+  "total_duration_hours": 13.1,
+  "total_distance_miles": 690,
+  "travel_tip": "The drive through Atlanta can have significant traffic. Try to time your travel through the city outside of peak rush hours (7-9 AM and 4-6 PM).",
+  "stops": [
+    {
+      "city": "Manchester",
+      "state": "TN",
+      "charge_time_minutes": 30,
+      "soc_recommendation": "Arrive with ~30% SoC. This 30-minute charge will get you comfortably to the major charging stop in Atlanta.",
+      "food_stops": [
+        {
+          "name": "Yamato Japanese Restaurant",
+          "type": "Japanese",
+          "description": "A local spot for a quick and satisfying hibachi or sushi meal."
+        }
+      ],
+      "emergency_convenience": {
+        "pharmacy": "Walgreens",
+        "grocery": "Walmart Supercenter"
+      }
+    },
+    {
+      "city": "Atlanta",
+      "state": "GA",
+      "charge_time_minutes": 60,
+      "soc_recommendation": "Arrive with ~15% SoC. This is a great spot for a longer charge to 80-90% while you have a meal or rest overnight.",
+      "food_stops": [
+        {
+          "name": "Jai Ho Indian Kitchen",
+          "type": "Indian",
+          "description": "Located in the popular Krog Street Market, offering authentic, chef-crafted Indian flavors."
+        },
+        {
+          "name": "Poor Calvin's",
+          "type": "Asian Fusion",
+          "description": "A highly-rated restaurant known for its unique fusion of Thai flavors with Southern comfort food."
+        }
+      ],
+      "lodging_option": {
+        "name": "Residence Inn Atlanta Downtown",
+        "type": "Hotel",
+        "amenities": [
+          "EV charging available",
+          "Kitchenettes in rooms",
+          "Free breakfast"
+        ]
+      },
+      "emergency_convenience": {
+        "pharmacy": "CVS Pharmacy (24-hour)",
+        "grocery": "Publix Super Market"
+      }
+    },
+    {
+      "city": "Tifton",
+      "state": "GA",
+      "charge_time_minutes": 70,
+      "soc_recommendation": "Arrive with ~20% SoC. This is your main long charge. Getting to 90%+ here is ideal for the rest of the journey.",
+      "food_stops": [
+        {
+          "name": "Amar Indian Restaurant",
+          "type": "Indian",
+          "description": "A buffet-style restaurant offering a wide variety of classic Indian dishes."
+        },
+        {
+          "name": "Asahi Express",
+          "type": "Japanese",
+          "description": "A convenient spot for Japanese steakhouse fare and seafood."
+        }
+      ],
+      "emergency_convenience": {
+        "pharmacy": "CVS Pharmacy",
+        "grocery": "Walmart Supercenter"
+      }
+    },
+    {
+      "city": "Ocala",
+      "state": "FL",
+      "charge_time_minutes": 15,
+      "soc_recommendation": "Arrive with ~25% SoC. This is a quick top-off to ensure you arrive in Orlando with plenty of charge to navigate the city.",
+      "food_stops": [
+        {
+          "name": "Amrit Palace Indian Restaurant",
+          "type": "Indian",
+          "description": "A long-standing local favorite known for its authentic cuisine and pleasant atmosphere."
+        },
+        {
+          "name": "Asian Pop",
+          "type": "Asian",
+          "description": "Offers a variety of Asian dishes and sushi in a friendly setting."
+        }
+      ],
+      "emergency_convenience": {
+        "pharmacy": "Walgreens (24-hour)",
+        "grocery": "Publix Super Market"
+      }
+    }
+  ],
+  "rest_areas": [
+    {
+      "name": "Marion County Welcome Center (TN)",
+      "location": "Mile Marker 160 on I-24 E, Tennessee",
+      "description": "A good first stop to stretch your legs before crossing into Georgia."
+    },
+    {
+      "name": "Georgia Rest Area #22",
+      "location": "Mile Marker 179 on I-75 S, Georgia",
+      "description": "A clean rest stop south of Atlanta to take a break."
+    },
+    {
+      "name": "Florida Welcome Center",
+      "location": "Mile Marker 470 on I-75 S, Florida",
+      "description": "The official welcome to the Sunshine State, offering free orange juice and travel info."
+    }
+  ],
+  "scenic_spots": [
+    {
+      "name": "Centennial Olympic Park",
+      "location": "Atlanta, GA",
+      "description": "A beautiful public park that was the centerpiece of the 1996 Olympics, surrounded by major attractions."
+    },
+    {
+      "name": "Silver Springs State Park",
+      "location": "Ocala, FL",
+      "description": "One of America's largest springs. Famous for its glass-bottom boat tours that showcase the crystal-clear water and aquatic life."
+    },
+    {
+      "name": "Florida Horse Park",
+      "location": "Ocala, FL",
+      "description": "A premier 500-acre equestrian facility in the 'Horse Capital of the World™', often hosting events."
+    }
+  ],
+  "kid_friendly_stops": [
+    {
+      "name": "Georgia Aquarium",
+      "location": "Atlanta, GA",
+      "description": "One of the largest aquariums in the world, featuring incredible exhibits with whale sharks, dolphins, and beluga whales."
+    },
+    {
+      "name": "World of Coca-Cola",
+      "location": "Atlanta, GA",
+      "description": "A fun museum showcasing the history of the famous beverage, with a popular tasting room featuring Coke products from around the globe."
+    },
+    {
+      "name": "Don Garlits Museum of Drag Racing",
+      "location": "Ocala, FL",
+      "description": "A fascinating stop for kids who love cars, showcasing the history of drag racing with over 300 vehicles on display."
+    }
+  ]
+}

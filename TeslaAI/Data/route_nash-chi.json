@@ -1,0 +1,141 @@
+{
+  "origin": "Nashville, TN, USA",
+  "destination": "Chicago, IL, USA",
+  "total_duration_hours": 9.0,
+  "total_distance_miles": 482,
+  "travel_tip": "For the best experience, try to depart Nashville before 7:00 AM to avoid morning rush hour around the city.",
+  "stops": [
+    {
+      "city": "Louisville",
+      "state": "KY",
+      "charge_time_minutes": 30,
+      "lat": 38.211644191598374,
+      "lng": -85.67376490432873,
+      "soc_recommendation": "Arrive with ~15% SoC. Charge to 80% to comfortably reach the next stop.",
+      "food_stops": [
+        {
+          "name": "Tikka House",
+          "type": "Indian",
+          "description": "A local favorite known for its extensive menu and flavorful Indian cuisine."
+        },
+        {
+          "name": "Dragon King's Daughter",
+          "type": "Asian Fusion",
+          "description": "Creative fusion of Asian and Latin flavors, offering sushi, tacos, and more."
+        }
+      ],
+      "emergency_convenience": {
+        "pharmacy": "Walgreens (24-hour)",
+        "grocery": "Kroger"
+      }
+    },
+    {
+      "city": "Indianapolis",
+      "state": "IN",
+      "charge_time_minutes": 15,
+      "lat": 39.70274136032107,
+      "lng": -86.0803285024039,
+      "soc_recommendation": "Arrive with ~20% SoC. A quick 15-minute charge will be sufficient.",
+      "food_stops": [
+        {
+          "name": "Bawarchi Biryanis",
+          "type": "Indian",
+          "description": "Specializes in authentic Hyderabadi biryani and a wide variety of Indian dishes."
+        },
+        {
+          "name": "Modita",
+          "type": "Asian",
+          "description": "An upscale, Asian-inspired restaurant with a unique flair on dishes like sushi, dim sum, and noodles."
+        }
+      ],
+      "lodging_option": {
+        "name": "Drury Plaza Hotel Indianapolis",
+        "type": "Hotel",
+        "amenities": [
+          "EV charging on-site",
+          "Free breakfast",
+          "Pool"
+        ]
+      },
+      "emergency_convenience": {
+        "pharmacy": "CVS Pharmacy (24-hour)",
+        "grocery": "Whole Foods Market"
+      }
+    },
+    {
+      "city": "Lafayette",
+      "state": "IN",
+      "charge_time_minutes": 30,
+      "lat": 40.41632387877143,
+      "lng": -86.81410677978245,
+      "soc_recommendation": "Arrive with ~25% SoC. Charge to 90% for the final leg into Chicago with plenty of buffer.",
+      "food_stops": [
+        {
+          "name": "Taste of India",
+          "type": "Indian",
+          "description": "A family-owned restaurant near Purdue University, offering an authentic taste of India."
+        }
+      ],
+      "emergency_convenience": {
+        "pharmacy": "CVS Pharmacy",
+        "grocery": "Pay Less Super Market"
+      }
+    }
+  ],
+  "rest_areas": [
+    {
+      "name": "I-65 Welcome Center (TN)",
+      "location": "Mile Marker 121 on I-65 N, Tennessee",
+      "description": "A clean and modern welcome center to stretch your legs before leaving Tennessee."
+    },
+    {
+      "name": "Funks Grove Rest Area (IL)",
+      "location": "Mile Marker 149 on I-55 N, Illinois",
+      "description": "A well-maintained rest area near Bloomington, known for its maple sirup history."
+    },
+    {
+      "name": "Limestone Rest Area (IL)",
+      "location": "Mile Marker 194 on I-55 N, Illinois",
+      "description": "A good final stop for a break before heading into the Chicagoland area."
+    }
+  ],
+  "scenic_spots": [
+    {
+      "name": "Louisville Slugger Museum & Factory",
+      "location": "Louisville, KY",
+      "description": "A must-see for baseball fans, featuring the world's largest baseball bat and factory tours."
+    },
+    {
+      "name": "National Corvette Museum",
+      "location": "Bowling Green, KY",
+      "description": "A slight detour, but a paradise for car enthusiasts, showcasing the history of America's sports car."
+    },
+    {
+      "name": "Indianapolis Motor Speedway Museum",
+      "location": "Indianapolis, IN",
+      "description": "Home of the Indy 500, offering a close-up look at legendary race cars and the iconic track."
+    },
+    {
+      "name": "Indiana Dunes National Park",
+      "location": "Near the southern tip of Lake Michigan, IN",
+      "description": "Features stunning sand dunes, beautiful beaches, and hiking trails along Lake Michigan."
+    }
+  ],
+  "kid_friendly_stops": [
+    {
+      "name": "Kentucky Science Center",
+      "location": "Louisville, KY",
+      "description": "A fantastic interactive science museum on Museum Row, perfect for curious kids to get hands-on."
+    },
+    {
+      "name": "The Children's Museum of Indianapolis",
+      "location": "Indianapolis, IN",
+      "description": "The world's largest children's museum. An absolute must-see with incredible exhibits, including dinosaurs and a carousel."
+    },
+    {
+      "name": "Fair Oaks Farms",
+      "location": "Fair Oaks, IN",
+      "description": "A large-scale agricultural theme park with interactive exhibits on dairy and pig farming, plus a massive play area."
+    }
+  ]
+}

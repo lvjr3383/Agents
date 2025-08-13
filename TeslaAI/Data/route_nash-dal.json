@@ -1,0 +1,160 @@
+{
+  "origin": "Nashville, TN, USA",
+  "destination": "Dallas, TX, USA",
+  "total_duration_hours": 13.0,
+  "total_distance_miles": 669,
+  "travel_tip": "The main cities on this route are Memphis and Little Rock. Try to pass through them outside of morning (7-9 AM) and evening (4-6 PM) rush hours to avoid potential delays on I-40.",
+  "stops": [
+    {
+      "city": "Jackson",
+      "state": "TN",
+      "charge_time_minutes": 55,
+      "soc_recommendation": "Arrive with ~20% SoC. This is a good long charge to get to 85-90% to comfortably cross into Arkansas.",
+      "food_stops": [
+        {
+          "name": "Sizzler Cuisine of India",
+          "type": "Indian",
+          "description": "An easygoing spot serving familiar and flavorful Indian dishes like curries and paratha rolls."
+        },
+        {
+          "name": "Asia Garden",
+          "type": "Chinese & Japanese",
+          "description": "A long-standing, award-winning local restaurant known for its large sushi rolls and extensive menu."
+        }
+      ],
+      "lodging_option": {
+        "name": "Hilton Garden Inn Jackson",
+        "type": "Hotel",
+        "amenities": ["EV charging on-site", "Pool", "Restaurant"]
+      },
+      "emergency_convenience": {
+        "pharmacy": "Walgreens",
+        "grocery": "Kroger"
+      }
+    },
+    {
+      "city": "Brinkley",
+      "state": "AR",
+      "charge_time_minutes": 15,
+      "soc_recommendation": "Arrive with ~30% SoC. This is a very quick top-off, just enough to add about 20% to ensure you reach Little Rock with a good buffer.",
+      "food_stops": [
+        {
+          "name": "Gene's BBQ",
+          "type": "American BBQ",
+          "description": "A classic roadside BBQ joint for a quick, authentic taste of Arkansas."
+        }
+      ],
+      "emergency_convenience": {
+        "pharmacy": "Palace Drug Store",
+        "grocery": "Mac's Fresh Market"
+      }
+    },
+    {
+      "city": "Little Rock",
+      "state": "AR",
+      "charge_time_minutes": 40,
+      "soc_recommendation": "Arrive with ~20% SoC. A solid 40-minute charge will get you back up to ~80% for the next leg of the trip.",
+      "food_stops": [
+        {
+          "name": "Taj Mahal Indian Kitchen",
+          "type": "Indian",
+          "description": "A locally-owned restaurant serving fresh and delicious classic Indian dishes."
+        },
+        {
+          "name": "Pei Wei Asian Kitchen",
+          "type": "Asian",
+          "description": "Offers a variety of bold, wok-fired pan-Asian favorites in a fast-casual setting."
+        }
+      ],
+      "emergency_convenience": {
+        "pharmacy": "CVS Pharmacy (24-hour)",
+        "grocery": "Whole Foods Market"
+      }
+    },
+    {
+      "city": "Texarkana",
+      "state": "TX",
+      "charge_time_minutes": 25,
+      "soc_recommendation": "Arrive with ~25% SoC. Charge up to ~70% to comfortably reach the final charging stop.",
+      "food_stops": [
+        {
+          "name": "Taste of India Grill & Bar",
+          "type": "Indian",
+          "description": "Offers a mix of traditional Indian dishes and unique Indo-American fusion items like Chicken Tikka Pizza."
+        }
+      ],
+      "emergency_convenience": {
+        "pharmacy": "Walgreens (24-hour)",
+        "grocery": "Walmart Supercenter"
+      }
+    },
+    {
+      "city": "Sulphur Springs",
+      "state": "TX",
+      "charge_time_minutes": 15,
+      "soc_recommendation": "Arrive with ~30% SoC. This is the final top-off. Charge to 80-90% to arrive in Dallas with plenty of range for city driving.",
+      "food_stops": [
+        {
+          "name": "Sweet Rice Lao-Thai Eats",
+          "type": "Thai/Laotian",
+          "description": "A local spot for authentic and flavorful Thai and Laotian cuisine."
+        }
+      ],
+      "emergency_convenience": {
+        "pharmacy": "CVS Pharmacy",
+        "grocery": "Brookshire's"
+      }
+    }
+  ],
+  "rest_areas": [
+    {
+      "name": "Tennessee Welcome Center",
+      "location": "Mile Marker 0.3 on I-40 W, Memphis, TN",
+      "description": "A large welcome center right on the Mississippi River, offering great views before you cross into Arkansas."
+    },
+    {
+      "name": "Social Hill Rest Area",
+      "location": "Mile Marker 93 on I-30 W, Arkansas",
+      "description": "A well-maintained and convenient rest stop between Little Rock and Texarkana."
+    },
+    {
+      "name": "Hopkins County Safety Rest Area",
+      "location": "Near Mile Marker 120 on I-30 W, Texas",
+      "description": "A modern and clean facility, a good last stop before arriving in the Dallas metro area."
+    }
+  ],
+  "scenic_spots": [
+    {
+      "name": "Graceland",
+      "location": "Memphis, TN",
+      "description": "A must-do detour. Explore the home of Elvis Presley, the King of Rock 'n' Roll. A major attraction that requires a few hours."
+    },
+    {
+      "name": "Hot Springs National Park",
+      "location": "Hot Springs, AR",
+      "description": "A significant but worthwhile detour south of Little Rock. Famous for its historic bathhouses and natural hot springs."
+    },
+    {
+      "name": "Sulphur Springs Glass Bathrooms",
+      "location": "Sulphur Springs, TX",
+      "description": "A quirky and famous roadside attraction. These public restrooms are made of one-way mirrored glass, so you can see out but no one can see in."
+    }
+  ],
+  "kid_friendly_stops": [
+    {
+      "name": "Casey Jones Village",
+      "location": "Jackson, TN",
+      "description": "A family-friendly complex featuring a historic railroad museum, an old-timey ice cream parlor, and shops."
+    },
+    {
+      "name": "Memphis Zoo",
+      "location": "Memphis, TN",
+      "description": "A world-class zoo, famous for its giant pandas and diverse animal habitats. A great stop if you detour through Memphis."
+    },
+    {
+      "name": "Museum of Discovery",
+      "location": "Little Rock, AR",
+      "description": "A fantastic, hands-on science and technology museum perfect for kids of all ages to explore and learn."
+    }
+  ]
+}

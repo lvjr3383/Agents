@@ -1,0 +1,273 @@
+{
+  "origin": "Nashville, TN, USA",
+  "destination": "Denver, CO, USA",
+  "total_duration_hours": 22.1,
+  "total_distance_miles": 1167,
+  "travel_tip": "This is a multi-day trip. St. Louis (near the St. Charles charger) is a great place to stop for the night. Crossing the Rocky Mountains into Denver can be slow, so allow for extra time on the final leg.",
+  "stops": [
+    {
+      "city": "Kuttawa",
+      "state": "KY",
+      "charge_time_minutes": 30,
+      "soc_recommendation": "Arrive with ~20% SoC. A 30-minute charge will get you to ~75%, perfect for the next leg.",
+      "food_stops": [
+        {
+          "name": "The Oasis Southwest Grill",
+          "type": "American",
+          "description": "A popular local spot for classic American fare and a friendly atmosphere."
+        }
+      ],
+      "emergency_convenience": {
+        "pharmacy": "CVS Pharmacy (in nearby Eddyville)",
+        "grocery": "Food Giant"
+      }
+    },
+    {
+      "city": "Mt. Vernon",
+      "state": "IL",
+      "charge_time_minutes": 25,
+      "soc_recommendation": "Arrive with ~25% SoC. This quick charge will get you to 70-75% to comfortably reach the St. Louis area.",
+      "food_stops": [
+        {
+          "name": "RARE Chop House",
+          "type": "Steakhouse",
+          "description": "An upscale dining option known for quality steaks and a fine dining experience."
+        }
+      ],
+      "emergency_convenience": {
+        "pharmacy": "Walgreens",
+        "grocery": "Kroger"
+      }
+    },
+    {
+      "city": "St. Charles",
+      "state": "MO",
+      "charge_time_minutes": 25,
+      "soc_recommendation": "Arrive with ~20% SoC. Charge to 80% while you explore the historic downtown or check into your hotel.",
+      "food_stops": [
+        {
+          "name": "Kabab N Kurry",
+          "type": "Indian",
+          "description": "Offers a menu of traditional and flavorful Indian kababs and curries."
+        },
+        {
+          "name": "Asia - Ameristar",
+          "type": "Asian",
+          "description": "A culinary tour of Chinese and Southeast Asian cuisine located within the Ameristar casino."
+        }
+      ],
+      "lodging_option": {
+        "name": "Drury Plaza Hotel St. Louis St. Charles",
+        "type": "Hotel",
+        "amenities": [
+          "EV charging on-site",
+          "Free breakfast",
+          "Pool"
+        ]
+      },
+      "emergency_convenience": {
+        "pharmacy": "CVS Pharmacy (24-hour)",
+        "grocery": "Fresh Thyme Market"
+      }
+    },
+    {
+      "city": "Columbia",
+      "state": "MO",
+      "charge_time_minutes": 15,
+      "soc_recommendation": "Arrive with ~30% SoC. A quick 15-minute top-off is all that's needed for the short hop to the next stop.",
+      "food_stops": [
+        {
+          "name": "India's House",
+          "type": "Indian",
+          "description": "Serving authentic Northern Indian cuisine to central Missouri for nearly fifteen years."
+        },
+        {
+          "name": "HuHot Mongolian Grill",
+          "type": "Asian",
+          "description": "A create-your-own stir-fry restaurant with a fresh market of ingredients and sauces."
+        }
+      ],
+      "emergency_convenience": {
+        "pharmacy": "Walgreens (24-hour)",
+        "grocery": "Hy-Vee"
+      }
+    },
+    {
+      "city": "Concordia",
+      "state": "MO",
+      "charge_time_minutes": 35,
+      "soc_recommendation": "Arrive with ~25% SoC. This is a good spot for a longer 35-minute charge to get back to ~80%.",
+      "food_stops": [
+        {
+          "name": "El Vaquero",
+          "type": "Mexican",
+          "description": "A local favorite for classic Mexican dishes and a vibrant atmosphere."
+        }
+      ],
+      "emergency_convenience": {
+        "pharmacy": "CVS Pharmacy (in nearby Higginsville)",
+        "grocery": "Walmart Supercenter"
+      }
+    },
+    {
+      "city": "Topeka",
+      "state": "KS",
+      "charge_time_minutes": 30,
+      "soc_recommendation": "Arrive with ~20% SoC. A 30-minute charge will get you to ~75% for the next leg across Kansas.",
+      "food_stops": [
+        {
+          "name": "Globe Indian Food",
+          "type": "Indian",
+          "description": "Offers a menu of classic Indian dishes in a casual setting."
+        },
+        {
+          "name": "HuHot Mongolian Grill",
+          "type": "Asian",
+          "description": "Another location of the popular create-your-own stir-fry chain."
+        }
+      ],
+      "emergency_convenience": {
+        "pharmacy": "CVS Pharmacy (24-hour)",
+        "grocery": "Dillons"
+      }
+    },
+    {
+      "city": "Salina",
+      "state": "KS",
+      "charge_time_minutes": 25,
+      "soc_recommendation": "Arrive with ~25% SoC. Charge back up to 75-80% to continue your journey west.",
+      "food_stops": [
+        {
+          "name": "Swagat Fine Indian Cuisine",
+          "type": "Indian",
+          "description": "Though a bit of a drive, it's known as one of the best Indian dining experiences in the region."
+        },
+        {
+          "name": "Imperial Garden Express",
+          "type": "Chinese",
+          "description": "A convenient option for quick and classic Chinese-American dishes."
+        }
+      ],
+      "lodging_option": {
+        "name": "Hilton Garden Inn Salina",
+        "type": "Hotel",
+        "amenities": [
+          "EV charging on-site",
+          "Pool",
+          "Restaurant"
+        ]
+      },
+      "emergency_convenience": {
+        "pharmacy": "Walgreens",
+        "grocery": "Dillons"
+      }
+    },
+    {
+      "city": "Hays",
+      "state": "KS",
+      "charge_time_minutes": 55,
+      "soc_recommendation": "Arrive with ~15% SoC. This is the longest charge stop, perfect for a meal. Charge to 90%+ for the high plains.",
+      "food_stops": [
+        {
+          "name": "Tikka Shack",
+          "type": "Indian",
+          "description": "A modern, casual spot serving up traditional Indian dishes and simplified pairings."       
+        },
+        {
+          "name": "Tryyaki Asian Cuisine",
+          "type": "Asian",
+          "description": "A family-owned drive-thru restaurant serving Chinese and Japanese cuisine."
+        }
+      ],
+      "emergency_convenience": {
+        "pharmacy": "CVS Pharmacy",
+        "grocery": "Walmart Supercenter"
+      }
+    },
+    {
+      "city": "Goodland",
+      "state": "KS",
+      "charge_time_minutes": 30,
+      "soc_recommendation": "Arrive with ~30% SoC. A 30-minute charge will get you to ~80% and ready to cross into Colorado.",
+      "food_stops": [
+        {
+          "name": "Terra Bona",
+          "type": "American Cafe",
+          "description": "A local coffee shop and eatery known for quality ingredients and a cozy atmosphere."
+        }
+      ],
+      "emergency_convenience": {
+        "pharmacy": "Goodland Pharmacy",
+        "grocery": "Walmart Supercenter"
+      }
+    },
+    {
+      "city": "Limon",
+      "state": "CO",
+      "charge_time_minutes": 15,
+      "soc_recommendation": "Arrive with ~25% SoC. This is the final, quick top-off to ensure you arrive in Denver with a high state of charge.",
+      "food_stops": [
+        {
+          "name": "Oscar's Bar & Grille",
+          "type": "American",
+          "description": "A classic small-town grill for a final break before reaching the city."
+        }
+      ],
+      "emergency_convenience": {
+        "pharmacy": "Walgreens",
+        "grocery": "Hoffman's Drug"
+      }
+    }
+  ],
+  "rest_areas": [
+    {
+      "name": "Gateway Rest Area",
+      "location": "Mile Marker 25 on I-64 W, Illinois",
+      "description": "A good stop after passing through southern Illinois, before reaching the St. Louis metro."
+    },
+    {
+      "name": "Mineola Hill Rest Area",
+      "location": "Mile Marker 173 on I-70 W, Missouri",
+      "description": "A scenic stop with historical markers about the Daniel Boone and Sante Fe trails."
+    },
+    {
+      "name": "Colby Rest Area",
+      "location": "Mile Marker 49 on I-70 W, Kansas",
+      "description": "A modern and well-maintained facility, a great place to stop in western Kansas."
+    }
+  ],
+  "scenic_spots": [
+    {
+      "name": "Gateway Arch National Park",
+      "location": "St. Louis, MO",
+      "description": "A must-see detour. Ride the tram to the top of the iconic 630-foot arch for incredible views of the city and the Mississippi River."
+    },
+    {
+      "name": "Kansas City",
+      "location": "Kansas City, MO",
+      "description": "A significant detour, but worth it for its world-renowned BBQ, jazz music history, and numerous fountains."
+    },
+    {
+      "name": "Eisenhower Presidential Library, Museum & Boyhood Home",
+      "location": "Abilene, KS",
+      "description": "A fascinating stop for history buffs, exploring the life and career of the 34th U.S. President, Dwight D. Eisenhower."
+    }
+  ],
+  "kid_friendly_stops": [
+    {
+      "name": "City Museum",
+      "location": "St. Louis, MO",
+      "description": "An incredible, one-of-a-kind museum that is essentially a giant, surreal playground for all ages, made from reclaimed architectural objects."
+    },
+    {
+      "name": "Union Station Kansas City",
+      "location": "Kansas City, MO",
+      "description": "A beautifully restored train station that houses Science City (a hands-on science center), a planetarium, and other family attractions."
+    },
+    {
+      "name": "Sternberg Museum of Natural History",
+      "location": "Hays, KS",
+      "description": "Famous for its incredible fossil collection, including the 'fish-within-a-fish' fossil. A great stop for dinosaur-loving kids."
+    }
+  ]
+}

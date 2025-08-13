@@ -1,0 +1,78 @@
+{
+  "origin": "Nashville, TN, USA",
+  "destination": "Atlanta, GA, USA",
+  "total_duration_hours": 4.4,
+  "total_distance_miles": 259,
+  "travel_tip": "This is a relatively short drive, but leaving Nashville after 9:00 AM can help you miss the worst of the morning traffic on I-24.",
+  "stops": [
+    {
+      "city": "Chattanooga",
+      "state": "TN",
+      "charge_time_minutes": 20,
+      "lat": 35.038787586757884,
+      "lng": -85.19591683243172,
+      "soc_recommendation": "Arrive with ~25% SoC. A 20-minute charge to ~75% will give you plenty of range to get to Atlanta and drive around.",
+      "food_stops": [
+        {
+          "name": "Sitar Indian Cuisine",
+          "type": "Indian",
+          "description": "A highly-rated spot offering authentic Indian dishes and a welcoming atmosphere."
+        },
+        {
+          "name": "Totto Sushi & Grill",
+          "type": "Japanese",
+          "description": "A family-owned restaurant on the Northshore known for its extensive menu of fresh sushi and hibachi."
+        }
+      ],
+      "lodging_option": {
+        "name": "The Westin Chattanooga",
+        "type": "Hotel",
+        "amenities": [
+          "EV charging on-site",
+          "Rooftop pool",
+          "Great city views"
+        ]
+      },
+      "emergency_convenience": {
+        "pharmacy": "CVS Pharmacy",
+        "grocery": "Publix Super Market"
+      }
+    }
+  ],
+  "rest_areas": [
+    {
+      "name": "Marion County Rest Area",
+      "location": "Mile Marker 160 on I-24 E, Tennessee",
+      "description": "A convenient and well-maintained stop before you get into the Chattanooga area."
+    }
+  ],
+  "scenic_spots": [
+    {
+      "name": "Lookout Mountain",
+      "location": "Chattanooga, TN",
+      "description": "Home to three famous attractions: Rock City Gardens with its breathtaking views, Ruby Falls (America's largest underground waterfall), and the Incline Railway."
+    },
+    {
+      "name": "Tennessee Riverwalk",
+      "location": "Chattanooga, TN",
+      "description": "A beautiful paved path along the Tennessee River, perfect for a stroll or bike ride to stretch your legs."
+    }
+  ],
+  "kid_friendly_stops": [
+    {
+      "name": "Tennessee Aquarium",
+      "location": "Chattanooga, TN",
+      "description": "One of the top-rated aquariums in the country, featuring two buildings for River and Ocean journeys. A fantastic stop for all ages."
+    },
+    {
+      "name": "Creative Discovery Museum",
+      "location": "Chattanooga, TN",
+      "description": "A leading children's museum with tons of hands-on exhibits focused on art, science, and music."
+    },
+    {
+      "name": "Rock City Gardens",
+      "location": "Lookout Mountain, GA",
+      "description": "Kids love exploring the enchanted trail, crossing the swing-a-long bridge, and seeing the views from Lover's Leap."
+    }
+  ]
+}
