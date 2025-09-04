@@ -17,3 +17,9 @@ __pycache__/
 chat_logs/
 *.pyc
 Consumer Banking/openai-agents-python/
+.env
+node_modules/
+data/
+.cache/
+*.sqlite
+__pycache__/
