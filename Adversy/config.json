@@ -1,0 +1,18 @@
+{
+    "keywords": {
+      "arrest": 8,
+      "bribery": 9,
+      "convicted": 10,
+      "crime": 7,
+      "corruption": 9,
+      "embezzlement": 8,
+      "fraud": 10,
+      "indictment": 8,
+      "investigation": 6,
+      "lawsuit": 5,
+      "money laundering": 10,
+      "sanction": 7,
+      "scandal": 6,
+      "tax evasion": 8
+    }
+  }
