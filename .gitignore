@@ -23,3 +23,8 @@ data/
 .cache/
 *.sqlite
 __pycache__/
+
+# Translator local stuff
+Translator/venv/
+Translator/__pycache__/
+.DS_Store
