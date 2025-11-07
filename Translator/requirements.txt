@@ -1,0 +1,8 @@
+transformers>=4.30.0
+gradio>=3.0.0
+torch>=2.0.0
+numpy>=1.24.0
+plotly>=5.14.0
+pandas>=2.0.0
+indic-transliteration>=0.6.0
+
