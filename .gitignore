@@ -28,3 +28,10 @@ __pycache__/
 Translator/venv/
 Translator/__pycache__/
 .DS_Store
+
+# NikeAI local only
+NikeAI/venv/
+NikeAI/.env
+NikeAI/.cursor/
+NikeAI/__pycache__/
+.DS_Store

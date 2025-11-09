@@ -1,0 +1,246 @@
+{
+    "running_shoes": [
+      {
+        "name": "Nike Alphafly 3",
+        "collection": "Alphafly",
+        "category": "Road Racing",
+        "price": 285.00,
+        "colors": ["Volt/Dusty Cactus/Total Orange", "White/Phantom/Total Orange", "Black/White"],
+        "description": "Our premier marathon racing shoe, designed to help you chase your next PR with relentless propulsion and energy return.",
+        "features": [
+          "Full-length carbon-fiber Flyplate",
+          "High-stack ZoomX midsole for maximum cushioning",
+          "Dual Nike Air Zoom units in the forefoot",
+          "Atomknit upper for a contoured, lightweight fit"
+        ],
+        "educational_blurb": "The Alphafly is engineered for peak performance on race day, offering our highest energy return for marathoners."
+      },
+      {
+        "name": "Nike Vaporfly 3",
+        "collection": "Vaporfly",
+        "category": "Road Racing",
+        "price": 250.00,
+        "colors": ["White/Deep Jungle", "Bright Crimson/Volt", "Black/White"],
+        "description": "A versatile racer that can handle any distance, from a 10K to a marathon, with a propulsive feel and stability.",
+        "features": [
+          "Full-length carbon-fiber Flyplate",
+          "Responsive ZoomX foam midsole",
+          "Flyknit upper for breathability",
+          "Updated thin outsole rubber for durability"
+        ],
+        "educational_blurb": "The Vaporfly is a race-day favorite, beloved for its blend of speed and stability across various distances."
+      },
+      {
+        "name": "Nike Streakfly",
+        "collection": "Streakfly",
+        "category": "Road Racing",
+        "price": 160.00,
+        "colors": ["White/Black", "Volt/Black", "Total Orange"],
+        "description": "Our lightest racing shoe, made for shorter distances like 5K and 10K with a low-profile, connected-to-the-ground feel.",
+        "features": [
+          "Low-profile ZoomX midsole",
+          "Midfoot shank for stability",
+          "Ultra-thin knit upper",
+          "Data-informed outsole traction pattern"
+        ],
+        "educational_blurb": "The Streakfly is your go-to for shorter road races, offering an incredibly lightweight and responsive feel."
+      },
+      {
+        "name": "Nike Zoom Fly 5",
+        "collection": "Zoom Fly",
+        "category": "Road Racing",
+        "price": 170.00,
+        "colors": ["Black/White", "Bright Crimson", "Hyper Pink"],
+        "description": "A durable training and racing shoe that bridges the gap between your everyday runs and race day, offering a propulsive sensation.",
+        "features": [
+          "Articulated carbon-fiber plate",
+          "ZoomX foam for responsive cushioning",
+          "Forefoot and heel have slightly wider bases for a stable platform",
+          "Dynamic lace-up fit with midfoot containment"
+        ],
+        "educational_blurb": "The Zoom Fly is a durable speedster, perfect for both race day and your toughest training sessions."
+      },
+      {
+        "name": "Nike Pegasus 41",
+        "collection": "Pegasus",
+        "category": "Road Running",
+        "price": 140.00,
+        "colors": ["Volt", "Black/White", "Blue"],
+        "description": "A springy ride for every run, the Peg helps you fly through your daily miles with a familiar, just-for-you feel.",
+        "features": [
+          "ReactX foam midsole for a smooth ride",
+          "Forefoot and heel Air Zoom units",
+          "Engineered mesh upper for breathability",
+          "Waffle-inspired outsole for excellent traction"
+        ],
+        "educational_blurb": "The Pegasus is the definition of a daily trainer, offering a balanced feel that's perfect for runners of all levels."
+      },
+      {
+        "name": "Nike Structure 25",
+        "collection": "Structure",
+        "category": "Road Running",
+        "price": 140.00,
+        "colors": ["Black/White", "Cool Grey/Red", "Deep Royal Blue"],
+        "description": "If you're looking for a shoe with trusted stability, the Structure 25 is there for you, offering a supportive yet smooth ride.",
+        "features": [
+          "Cushlon 3.0 foam and a Zoom Air unit",
+          "Updated midfoot system for better support",
+          "Durable rubber sole with grooves for flexibility",
+          "More foam than previous versions for better cushioning"
+        ],
+        "educational_blurb": "The Structure provides trusted stability for runners who overpronate, ensuring a smooth and secure ride."
+      },
+      {
+        "name": "Nike Vomero 17",
+        "collection": "Vomero",
+        "category": "Road Running",
+        "price": 160.00,
+        "colors": ["White/Platinum", "Black", "Thunder Blue"],
+        "description": "A luxurious, plush ride for your daily miles. The Vomero delivers premium comfort with a springy, energetic feel underfoot.",
+        "features": [
+          "Dual-density midsole with ZoomX on top and Cushlon 3.0 below",
+          "Engineered mesh upper for breathability",
+          "Plush tongue and collar",
+          "High-abrasion rubber outsole"
+        ],
+        "educational_blurb": "The Vomero is your go-to for maximum cushioning and comfort on everyday runs, providing a soft yet responsive experience."
+      },
+      {
+        "name": "Nike Pegasus Trail 5",
+        "collection": "Pegasus",
+        "category": "Trail Running",
+        "price": 140.00,
+        "colors": ["Earth/Brown", "Black/Aura", "Mint Foam"],
+        "description": "Your trusted workhorse with wings takes to the trails. It's perfect for those who want a versatile shoe for both road and trail.",
+        "features": [
+          "React foam for a cushioned, responsive ride",
+          "Rubber outsole with a shockwave-like pattern for traction",
+          "Mesh in key areas for breathability",
+          "Dynamic Fit band system through the midfoot for secure support"
+        ],
+        "educational_blurb": "The Pegasus Trail is a versatile hybrid, offering comfort on the road and confident grip on the trail."
+      },
+      {
+        "name": "Nike Kiger 9",
+        "collection": "Kiger",
+        "category": "Trail Running",
+        "price": 150.00,
+        "colors": ["Spring Green/Olive", "Black/Cool Grey", "Bright Crimson"],
+        "description": "A nimble and lightweight trail shoe that gives you a low-to-the-ground feel for navigating technical terrain with speed.",
+        "features": [
+          "Full-length React foam midsole",
+          "Zoom Air unit in the forefoot",
+          "Multi-directional traction lugs in the heel",
+          "Rock plate to help shield your foot"
+        ],
+        "educational_blurb": "The Kiger is built for speed on the trails, offering a nimble and connected feel for technical terrain."
+      },
+      {
+        "name": "Nike Wildhorse 8",
+        "collection": "Wildhorse",
+        "category": "Trail Running",
+        "price": 140.00,
+        "colors": ["Neutral Olive/Black", "Diffused Blue", "Canyon Rust"],
+        "description": "A rugged and durable trail runner designed for tough terrain and long miles, offering a blend of cushioning and traction.",
+        "features": [
+          "Full-length React foam for a soft, smooth ride",
+          "Midfoot saddle to keep your foot contained",
+          "High-abrasion rubber outsole with multi-directional lugs",
+          "Ankle collar to keep out dirt and debris"
+        ],
+        "educational_blurb": "The Wildhorse is a rugged workhorse for the trails, built to handle tough terrain with comfort and durability."
+      },
+      {
+        "name": "Nike Juniper Trail 2",
+        "collection": "Juniper Trail",
+        "category": "Trail Running",
+        "price": 85.00,
+        "colors": ["Black/White", "Cargo Khaki", "Wolf Grey"],
+        "description": "A consistent ride for your off-road runs. It has a tough traction and a lightweight design so you can keep moving on challenging terrain.",
+        "features": [
+          "Tapered lugs for grip on rocky roads",
+          "Internal bootie wraps the foot for a secure, sock-like fit",
+          "Flywire cables for stability",
+          "Mesh upper for breathability"
+        ],
+        "educational_blurb": "The Juniper Trail offers reliable traction and comfort, making it a great entry point for new trail runners."
+      },
+      {
+        "name": "Nike Ultrafly",
+        "collection": "Ultrafly",
+        "category": "Trail Running",
+        "price": 260.00,
+        "colors": ["White/Proto Blue", "Black/Concord"],
+        "description": "A revolutionary trail racing shoe that brings carbon plate technology to the off-road world for unparalleled speed.",
+        "features": [
+          "Carbon Flyplate sandwiched between ZoomX foam",
+          "Vibram Litebase outsole with Traction Lugs",
+          "Vaporweave upper for durability and water-shedding",
+          "Protective midsole wrap"
+        ],
+        "educational_blurb": "The Ultrafly is Nike's premier trail racing shoe, combining carbon plate technology with aggressive traction for ultimate speed."
+      },
+      {
+        "name": "Nike Zegama 2",
+        "collection": "Zegama",
+        "category": "Trail Running",
+        "price": 180.00,
+        "colors": ["Citron Pulse/Black", "Bicoastal/Light Silver"],
+        "description": "Designed to conquer technical terrain, offering great grip and stability to keep you going on your longest trail adventures.",
+        "features": [
+          "ZoomX foam midsole for responsive cushioning",
+          "Deeper, diverse lug pattern for enhanced grip",
+          "Engineered mesh upper for stability and breathability",
+          "Ankle gaiter to limit trail debris"
+        ],
+        "educational_blurb": "The Zegama is built for navigating the most challenging terrain, providing maximum grip and cushioning."
+      },
+      {
+        "name": "Nike Pegasus 40 (Kids)",
+        "collection": "Pegasus",
+        "category": "Kids Running",
+        "price": 90.00,
+        "colors": ["Black/White", "Pink Foam/White", "Glacier Blue/Laser Fuchsia"],
+        "description": "The same reliable ride as the adult version, tuned for a kid's foot. Perfect for the playground, gym class, and track.",
+        "features": [
+          "Kid-specific Zoom Air unit in the forefoot",
+          "Cushioning foam for a responsive feel",
+          "Breathable mesh upper",
+          "Durable rubber sole"
+        ],
+        "educational_blurb": "The Kids' Pegasus offers young athletes a versatile, comfortable, and reliable shoe for all their activities."
+      },
+      {
+        "name": "Nike Vomero 17 (Kids)",
+        "collection": "Vomero",
+        "category": "Kids Running",
+        "price": 110.00,
+        "colors": ["White/Metallic Silver", "Black/Anthracite"],
+        "description": "Maximum cushioning for kids who love to run and play all day, providing a soft and bouncy feel.",
+        "features": [
+          "Soft and responsive foam",
+          "Supportive midfoot band",
+          "Reinforced toe tip for durability",
+          "Easy on-and-off design"
+        ],
+        "educational_blurb": "The Kids' Vomero provides top-tier cushioning for active kids, ensuring comfort during all-day play."
+      },
+      {
+        "name": "Nike Sonic Fly (Kids)",
+        "collection": "Sonic Fly",
+        "category": "Kids Running",
+        "price": 75.00,
+        "colors": ["Racer Blue/White", "Bright Crimson/Black", "Volt/Hyper Pink"],
+        "description": "A speedy and lightweight shoe for kids who want to feel fast, whether they're racing their friends or running in a competition.",
+        "features": [
+          "Lightweight and breathable design",
+          "Soft foam underfoot for cushioning",
+          "Rubber sole for durable traction",
+          "Hook-and-loop strap for a secure fit"
+        ],
+        "educational_blurb": "The Sonic Fly is all about speed, offering a lightweight and secure fit for young runners on the move."
+      }
+    ]
+  }
+  
+  
