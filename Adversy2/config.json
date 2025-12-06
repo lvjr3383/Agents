@@ -1,0 +1,32 @@
+{
+  "keywords": {
+    "fraud": 10,
+    "fraudulent": 10,
+    "embezzlement": 9,
+    "bribery": 9,
+    "bribe": 8,
+    "corruption": 9,
+    "kickback": 8,
+    "money laundering": 10,
+    "sanction": 9,
+    "tax evasion": 9,
+    "indictment": 9,
+    "indicted": 9,
+    "charged": 8,
+    "charge": 8,
+    "arrest": 8,
+    "arrested": 8,
+    "convicted": 10,
+    "guilty": 9,
+    "felony": 8,
+    "plea": 7,
+    "lawsuit": 7,
+    "sued": 7,
+    "settlement": 7,
+    "penalty": 7,
+    "fine": 7,
+    "whistleblower": 7,
+    "doj": 7,
+    "regulator": 6
+  }
+}

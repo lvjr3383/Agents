@@ -35,3 +35,7 @@ NikeAI/.env
 NikeAI/.cursor/
 NikeAI/__pycache__/
 .DS_Store
+
+# Adversy2 local-only artifacts
+Adversy2/venv/
+Adversy2/cases.db

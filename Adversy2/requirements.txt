@@ -1,0 +1,8 @@
+requests
+python-dotenv
+rich
+vaderSentiment
+beautifulsoup4
+gradio
+openai
+reportlab
