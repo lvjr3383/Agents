@@ -1,0 +1,10 @@
+fpdf2>=2.7.8
+huggingface_hub>=0.20.3
+numpy>=1.24.4
+sentencepiece>=0.1.99
+soundfile>=0.12.1
+streamlit>=1.31.1
+tensorflow>=2.15.0
+torch>=2.1.0
+torchaudio>=2.1.0
+transformers>=4.43.0
