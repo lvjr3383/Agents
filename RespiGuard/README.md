@@ -1,6 +1,4 @@
-<p align="center">
-  <img src="assets/respiguard-header.jpg" alt="RespiGuard header" width="720">
-</p>
+![RespiGuard header](assets/respiguard-header.jpg)
 
 # RespiGuard: Offline-First Acoustic Triage Assistant
 
