@@ -1,3 +1,5 @@
+![RespiGuard header](assets/respiguard-header.jpg)
+
 # RespiGuard: Offline-First Acoustic Triage Assistant
 
 RespiGuard is a privacy-first, offline AI application designed to bring specialist-level respiratory screening to low-resource and remote clinical environments. The goal is simple: turn a standard laptop into a bio-acoustic triage tool that helps frontline staff make faster, more informed decisions without needing internet access.
