@@ -1,0 +1,14 @@
+__pycache__/
+.pycache/
+*.pyc
+.venv/
+.env
+.DS_Store
+
+# Generated demo artifacts
+data/generated/*.csv
+data/generated/*.json
+!data/generated/.gitkeep
+
+data/s3_mock/media/*
+!data/s3_mock/media/.gitkeep

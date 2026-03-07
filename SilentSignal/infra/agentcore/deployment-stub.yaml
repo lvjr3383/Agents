@@ -1,0 +1,25 @@
+project: SilentSignal
+runtime: bedrock-agentcore
+region: ${AWS_REGION}
+
+agents:
+  - name: SilenceMapperAgent
+    runtime: local-python
+    entrypoint: agents/silence_mapper_agent.py
+    mode: sagemaker-fallback
+  - name: DroneAnalystAgent
+    runtime: bedrock
+    model_id: ${BEDROCK_MODEL_ID}
+    entrypoint: agents/drone_analyst_agent.py
+
+api:
+  framework: fastapi
+  entrypoint: services/api/app/main.py
+
+resources:
+  dynamodb_table: ${DYNAMODB_TABLE}
+  s3_bucket: ${S3_BUCKET}
+
+notes:
+  - This is a deploy stub for AgentCore handoff.
+  - Keep local mock mode as the default for Free Tier demos.

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔴 SILENTSIGNAL - Disaster Response Intelligence</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-main">
+                <div class="title-section">
+                    <h1>🔴 SILENTSIGNAL</h1>
+                    <p class="subtitle">Disaster Response Intelligence Platform</p>
+                </div>
+                <div class="header-controls">
+                    <button id="resetAppBtn" class="btn btn-reset">↺ Reset</button>
+                </div>
+            </div>
+            <div class="status-bar">
+                <div class="status-item">
+                    <span class="status-label">Zones Detected:</span>
+                    <span id="zoneCount" class="status-value">0</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-label">Last Analysis:</span>
+                    <span id="lastAnalysis" class="status-value">Never</span>
+                </div>
+                <div class="status-item">
+                    <span class="status-label">System Time:</span>
+                    <span id="systemClock" class="status-value">--:--:--</span>
+                </div>
+                <div id="analysisIndicator" class="analysis-indicator"></div>
+            </div>
+        </header>
+
+        <!-- Main Grid -->
+        <div class="grid-container">
+            <!-- Map Panel (Top Left) -->
+            <div class="panel map-panel">
+                <div class="panel-header">
+                    <h2>📍 TACTICAL MAP</h2>
+                    <span class="panel-subtitle">New Orleans Disaster Zone</span>
+                </div>
+                <div id="map" class="map-container"></div>
+            </div>
+
+            <!-- Priority Zones Panel (Top Right) -->
+            <div class="panel zones-panel">
+                <div class="panel-header">
+                    <h2>⚠️ PRIORITY ZONES</h2>
+                    <span class="panel-subtitle">Sorted by Drop Score</span>
+                </div>
+                <div id="zonesList" class="zones-list">
+                    <div class="empty-state">No zones detected. Generate data to begin.</div>
+                </div>
+            </div>
+
+            <!-- Zone Detail Panel (Bottom Left) -->
+            <div class="panel detail-panel">
+                <div class="panel-header">
+                    <h2>🔍 ZONE DETAIL</h2>
+                    <span class="panel-subtitle">Event Analysis</span>
+                </div>
+                <div id="zoneDetail" class="zone-detail">
+                    <div class="empty-state">Select a zone to view details</div>
+                </div>
+            </div>
+
+            <!-- Chat Panel (Bottom Right) -->
+            <div class="panel chat-panel">
+                <div class="panel-header">
+                    <h2>💬 CHAT WITH DATA</h2>
+                    <span class="panel-subtitle">AI Intelligence Assistant</span>
+                </div>
+                <div id="chatHistory" class="chat-history"></div>
+                <div class="chat-chips">
+                    <button class="chip" onclick="chipCommand('Start monitoring')">▶ Start Monitoring</button>
+                    <button class="chip" onclick="chipCommand('Show all zones')">⚠ Show Zones</button>
+                    <button class="chip" onclick="chipCommand('Analyze drone footage for Z-001')">📡 Analyze Z-001</button>
+                    <button class="chip" onclick="chipCommand('Dispatch to Z-001')">🚁 Dispatch Z-001</button>
+                </div>
+                <div class="chat-input-container">
+                    <input type="text" id="chatInput" placeholder="Ask about zones, events, or analysis..." />
+                    <button id="chatSendBtn" class="btn btn-primary">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
