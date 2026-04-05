@@ -84,7 +84,7 @@ The taxonomy loads at server startup. The Judge receives only `id`, `name`, and 
 
 ---
 
-## The Test That Surprised Us
+## What the First Test Revealed
 
 The first version of Test Case 1 failed.
 
@@ -98,7 +98,7 @@ This is actually the most important thing I learned from building this tool. It'
 
 ---
 
-## What the Judge Gets Right That Most Tools Miss
+## Two Things Worth Calling Out
 
 **The MD5 moment.**
 
@@ -106,7 +106,7 @@ Test Case 2 was a prompt/output pair where the AI responded to "build me a secur
 
 MD5 is a real algorithm. The Judge wasn't catching a hallucinated library. It was catching a *hallucinated capability claim* — the AI asserting that MD5 provides security in a context where it demonstrably doesn't. The taxonomy definition says "AI invented a library, API, or integration that does not exist" — but the detection signal is broader: confident assertion of something that doesn't hold up to verification.
 
-This is a more dangerous failure than a fake library because it passes a surface-level sanity check. A developer who doesn't know cryptography reads "hashed using MD5 for security" and ships it. The Judge caught it. That matters.
+This is a more dangerous failure than a fake library because it passes a surface-level sanity check. A developer who doesn't know cryptography reads "hashed using MD5 for security" and ships it.
 
 **The FM-00 behavior.**
 
@@ -128,7 +128,7 @@ It does not make hiring, legal, or compliance decisions. The candidate screening
 
 It does not retain any input. The backend is stateless. Every session is independent.
 
-Knowing what a tool doesn't do is how you know the builder thought clearly about what it does.
+These constraints were deliberate, not gaps.
 
 ---
 
@@ -136,11 +136,11 @@ Knowing what a tool doesn't do is how you know the builder thought clearly about
 
 **Spec-driven development is not overhead. It's the work.**
 
-The four planning documents took longer to write than the application. The build went clean because of it. There were no debates mid-build about what the tool should do or how it should handle edge cases — those decisions were already made and documented. The checklist approach meant every phase had clear exit criteria. Phase 3 was complete when the console.log stub fired correctly in the browser. Phase 6 was complete when all five test cases passed.
+The four planning documents took longer to write than the application. But there were no debates mid-build about what the tool should do or how it should handle edge cases — those decisions were already made and documented. The checklist approach meant every phase had clear exit criteria before moving to the next one.
 
 **A diagnostic tool is only as good as its vocabulary.**
 
-Generic taxonomies produce generic diagnoses. The 17-mode taxonomy built from enterprise consulting experience produced diagnoses that matched real outcomes — including the anchor case study, which was a real project with a real failure. The failure vocabulary is the product. Everything else is scaffolding.
+Generic taxonomies produce generic diagnoses. The failure modes in this taxonomy came from real enterprise AI engagements, which is why they produced diagnoses that matched real outcomes — including the anchor case study. The vocabulary matters more than the application wrapping it.
 
 **Input quality is a UX problem.**
 
@@ -170,11 +170,9 @@ Every system that never says "I don't know" is a system you can't trust. FM-00 w
 
 ## The Real Finding
 
-I set out to build a diagnostic tool for failed AI builds. What I actually built is a structured vocabulary for talking about AI failure.
+I set out to build a diagnostic tool for failed AI builds. Along the way I realized the more useful thing was building a structured vocabulary for talking about AI failure.
 
-That's the thing the industry is missing. Not better models. Not more compute. A shared language for the ways AI projects go wrong at the decision layer — before the first token is generated.
-
-The 17 failure modes are not comprehensive. They're a starting point. If you've worked on AI projects that failed, you've probably seen FM-06 (Uncontrolled Evolution) and FM-15 (No Decision Ownership) more than any others. If you work in enterprise, FM-10 (Integration Reality Gap) shows up constantly. If you vibe-code, FM-01 (Context Gap) and FM-13 (No Verification Loop) are your regulars.
+The 17 failure modes are not comprehensive. They're a starting point. If you've worked on AI projects that failed, you've probably seen FM-06 (Uncontrolled Evolution) and FM-15 (No Decision Ownership) more than any others. If you work in enterprise, FM-10 (Integration Reality Gap) comes up constantly. If you build a lot of AI prototypes, FM-01 (Context Gap) and FM-13 (No Verification Loop) will look familiar.
 
 The tool is live. The taxonomy is open. The repo is public.
 
