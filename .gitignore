@@ -39,3 +39,11 @@ NikeAI/__pycache__/
 # Adversy2 local-only artifacts
 Adversy2/venv/
 Adversy2/cases.db
+
+# AdversyAI keep local
+AdversyAI/
+AdversyAI.bak/
+
+# ai-autopsy local-only artifacts
+ai-autopsy/venv/
+ai-autopsy/__pycache__/

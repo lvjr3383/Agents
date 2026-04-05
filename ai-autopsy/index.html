@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Autopsy — Post-Mortem Diagnostic for Failed AI Builds</title>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      height: 100%;
+      overflow: hidden;
+      font-family: system-ui, -apple-system, 'Segoe UI', Inter, sans-serif;
+      font-size: 14px;
+      font-weight: 450;
+      color: #0a0a0a;
+      background: #f3f4f6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── App shell ── */
+    .app {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    /* ── Header ── */
+    .app-header {
+      flex-shrink: 0;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 28px;
+      background: #fff;
+      border-bottom: 1px solid #e5e7eb;
+      z-index: 10;
+    }
+
+    .header-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .header-brand h1 {
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: #0a0a0a;
+    }
+
+    .header-brand h1 span { color: #2563eb; }
+
+    .header-badge {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: #eff6ff;
+      color: #2563eb;
+      padding: 2px 8px;
+      border-radius: 20px;
+    }
+
+    .header-meta {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: #6b7280;
+    }
+
+    /* ── Body: two columns ── */
+    .app-body {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 400px 1fr;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    /* ── Left panel ── */
+    .left-panel {
+      display: flex;
+      flex-direction: column;
+      background: #f9fafb;
+      border-right: 1px solid #e5e7eb;
+      overflow: hidden;
+    }
+
+    .left-scroll {
+      flex: 1;
+      overflow-y: auto;
+      padding: 24px 24px 12px;
+    }
+
+    .left-footer {
+      flex-shrink: 0;
+      padding: 14px 24px 20px;
+      background: #f9fafb;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    /* ── Right panel ── */
+    .right-panel {
+      display: flex;
+      flex-direction: column;
+      background: #fff;
+      overflow: hidden;
+    }
+
+    .right-scroll {
+      flex: 1;
+      overflow-y: auto;
+      padding: 28px 36px;
+    }
+
+    /* ── Section labels ── */
+    .field-label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #374151;
+      margin-bottom: 8px;
+    }
+
+    .field-group {
+      margin-bottom: 18px;
+    }
+
+    /* ── Toggle buttons ── */
+    .toggle-group {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .toggle-btn {
+      font-family: inherit;
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 5px 14px;
+      border-radius: 20px;
+      cursor: pointer;
+      border: 1.5px solid #d1d5db;
+      background: #fff;
+      color: #374151;
+      transition: all 0.12s;
+      line-height: 1.6;
+    }
+
+    .toggle-btn.active {
+      background: #eff6ff;
+      border-color: #2563eb;
+      color: #1d4ed8;
+      font-weight: 700;
+    }
+
+    .toggle-btn:hover:not(.active):not(:disabled) {
+      border-color: #9ca3af;
+      color: #111827;
+    }
+
+    .toggle-btn:disabled {
+      opacity: 0.45;
+      pointer-events: none;
+    }
+
+    /* ── Textarea ── */
+    textarea {
+      width: 100%;
+      height: 260px;
+      background: #fff;
+      border: 1.5px solid #d1d5db;
+      border-radius: 8px;
+      color: #0a0a0a;
+      font-family: 'Courier New', monospace;
+      font-size: 0.82rem;
+      font-weight: 500;
+      line-height: 1.65;
+      padding: 12px 14px;
+      resize: none;
+      outline: none;
+      transition: border-color 0.12s, box-shadow 0.12s;
+    }
+
+    textarea:focus {
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37,99,235,0.1);
+    }
+
+    textarea:disabled {
+      background: #f9fafb;
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+
+    .char-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 5px;
+    }
+
+    .example-link {
+      font-size: 0.75rem;
+      color: #2563eb;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      font-family: inherit;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .example-link:hover { color: #1d4ed8; }
+    .example-link:disabled { opacity: 0.4; cursor: not-allowed; }
+
+    .char-counter {
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: #6b7280;
+    }
+
+    .char-counter.warn  { color: #d97706; }
+    .char-counter.limit { color: #dc2626; }
+
+    /* ── Action buttons ── */
+    .action-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+    }
+
+    .btn-run {
+      font-family: inherit;
+      font-size: 0.88rem;
+      font-weight: 700;
+      padding: 11px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      background: #2563eb;
+      border: none;
+      color: #fff;
+      transition: background 0.12s, box-shadow 0.12s;
+      box-shadow: 0 1px 6px rgba(37,99,235,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .btn-run:hover:not(:disabled) {
+      background: #1d4ed8;
+      box-shadow: 0 3px 12px rgba(37,99,235,0.35);
+    }
+
+    .btn-run:disabled {
+      background: #93c5fd;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+
+    .btn-clear {
+      font-family: inherit;
+      font-size: 0.82rem;
+      font-weight: 500;
+      padding: 11px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      background: #fff;
+      border: 1.5px solid #d1d5db;
+      color: #6b7280;
+      transition: all 0.12s;
+      white-space: nowrap;
+    }
+
+    .btn-clear:hover:not(:disabled) {
+      border-color: #9ca3af;
+      color: #374151;
+      background: #f9fafb;
+    }
+
+    .btn-clear:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+
+    /* ── Keyboard hint ── */
+    .kbd-hint {
+      text-align: center;
+      font-size: 0.68rem;
+      font-weight: 500;
+      color: #9ca3af;
+      margin-top: 8px;
+    }
+
+    kbd {
+      background: #f3f4f6;
+      border: 1px solid #d1d5db;
+      border-radius: 3px;
+      padding: 1px 5px;
+      font-family: inherit;
+      font-size: 0.68rem;
+      font-weight: 600;
+      color: #6b7280;
+    }
+
+    /* ── Right panel: empty state ── */
+    .empty-state {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      text-align: center;
+      padding: 40px;
+      color: #9ca3af;
+    }
+
+    .empty-icon {
+      font-size: 2.5rem;
+      margin-bottom: 16px;
+      opacity: 0.5;
+    }
+
+    .empty-state h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #374151;
+      margin-bottom: 8px;
+    }
+
+    .empty-state p {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: #4b5563;
+      line-height: 1.6;
+      max-width: 300px;
+      margin-bottom: 28px;
+    }
+
+    .empty-features {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      text-align: left;
+    }
+
+    .empty-feature {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: #4b5563;
+    }
+
+    .empty-feature::before {
+      content: '✦';
+      color: #dbeafe;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* ── Right panel: loading state ── */
+    .loading-state {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      gap: 14px;
+      color: #6b7280;
+    }
+
+    .loading-state.visible { display: flex; }
+
+    .spinner {
+      width: 28px;
+      height: 28px;
+      border: 3px solid #dbeafe;
+      border-top-color: #2563eb;
+      border-radius: 50%;
+      animation: spin 0.75s linear infinite;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .loading-state p {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #374151;
+    }
+
+    .loading-dots span {
+      animation: blink 1.2s infinite;
+    }
+    .loading-dots span:nth-child(2) { animation-delay: 0.2s; }
+    .loading-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+    @keyframes blink {
+      0%, 80%, 100% { opacity: 0; }
+      40% { opacity: 1; }
+    }
+
+    /* ── Right panel: error state ── */
+    .error-state {
+      display: none;
+      margin: 0;
+      padding: 16px 18px;
+      background: #fef2f2;
+      border: 1px solid #fca5a5;
+      border-radius: 8px;
+      color: #dc2626;
+      font-size: 0.85rem;
+      line-height: 1.5;
+    }
+
+    .error-state.visible { display: block; }
+
+    /* ── Report ── */
+    .report-wrapper {
+      display: none;
+      animation: fadeIn 0.25s ease;
+    }
+
+    .report-wrapper.visible { display: block; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .report-topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid #f3f4f6;
+    }
+
+    .report-topbar-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .report-label {
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #1d4ed8;
+    }
+
+    /* Verdict badge */
+    .verdict-badge {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 3px 9px;
+      border-radius: 20px;
+    }
+
+    .verdict-critical    { background: #fef2f2; color: #dc2626; }
+    .verdict-recoverable { background: #fffbeb; color: #d97706; }
+    .verdict-inconclusive { background: #f3f4f6; color: #6b7280; }
+
+    .btn-copy {
+      font-family: inherit;
+      font-size: 0.72rem;
+      font-weight: 500;
+      padding: 5px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      border: 1.5px solid #e5e7eb;
+      background: #fff;
+      color: #6b7280;
+      transition: all 0.12s;
+    }
+
+    .btn-copy:hover { border-color: #2563eb; color: #2563eb; }
+    .btn-copy.copied { border-color: #16a34a; color: #16a34a; }
+
+    /* Markdown inside report */
+    #report-output { font-size: 0.9rem; line-height: 1.8; }
+
+    #report-output h2 {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #0a0a0a;
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #eff6ff;
+      letter-spacing: -0.01em;
+    }
+
+    #report-output h3 {
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #1d4ed8;
+      margin-top: 22px;
+      margin-bottom: 6px;
+    }
+
+    #report-output p { color: #1a1a1a; margin-bottom: 8px; font-weight: 450; }
+
+    #report-output code {
+      background: #eff6ff;
+      color: #1d4ed8;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+
+    #report-output ol, #report-output ul {
+      padding-left: 20px;
+      color: #1a1a1a;
+      margin-bottom: 8px;
+    }
+
+    #report-output li { margin-bottom: 4px; font-weight: 450; }
+    #report-output strong { color: #0a0a0a; font-weight: 700; }
+    #report-output hr { border: none; border-top: 1px solid #f3f4f6; margin: 16px 0; }
+
+    #report-output blockquote {
+      border-left: 3px solid #2563eb;
+      padding-left: 14px;
+      color: #374151;
+      font-weight: 500;
+      margin: 10px 0;
+    }
+
+    /* Inconclusive notice */
+    .inconclusive-notice {
+      display: none;
+      margin-top: 14px;
+      background: #fffbeb;
+      border: 1px solid #fde68a;
+      border-radius: 8px;
+      padding: 12px 16px;
+      color: #92400e;
+      font-size: 0.82rem;
+      line-height: 1.55;
+    }
+
+    .inconclusive-notice.visible { display: block; }
+  </style>
+</head>
+<body>
+<div class="app">
+
+  <!-- Header -->
+  <header class="app-header">
+    <div class="header-brand">
+      <h1>🧠 AI <span>Autopsy</span></h1>
+      <span class="header-badge">Diagnostic Tool</span>
+    </div>
+    <span class="header-meta">Post-mortem analysis for failed AI builds</span>
+  </header>
+
+  <!-- Body -->
+  <div class="app-body">
+
+    <!-- Left: Input panel -->
+    <div class="left-panel">
+      <div class="left-scroll">
+
+        <!-- Input type -->
+        <div class="field-group">
+          <div class="field-label">Input Type</div>
+          <div class="toggle-group">
+            <button class="toggle-btn active" data-type="prompt-output" onclick="selectType(this)">Prompt + Output</button>
+            <button class="toggle-btn" data-type="spec" onclick="selectType(this)">Spec / Requirements</button>
+            <button class="toggle-btn" data-type="code" onclick="selectType(this)">Code Snippet</button>
+          </div>
+        </div>
+
+        <!-- Textarea -->
+        <div class="field-group">
+          <div class="field-label">Input</div>
+          <textarea
+            id="user-input"
+            placeholder="Paste your failed prompt + output, spec, or code snippet here..."
+            maxlength="5000"
+            oninput="updateCounter()"
+            onkeydown="handleKeydown(event)"
+          ></textarea>
+          <div class="char-row">
+            <button class="example-link" id="example-btn" onclick="loadExample()">Try an example</button>
+            <span class="char-counter" id="char-counter">0 / 5000</span>
+          </div>
+        </div>
+
+      </div><!-- /left-scroll -->
+
+      <!-- Sticky footer: action buttons -->
+      <div class="left-footer">
+        <div class="action-row">
+          <button class="btn-run" id="btn-run" onclick="runAutopsy()">
+            <span id="btn-run-text">Run Autopsy</span>
+          </button>
+          <button class="btn-clear" id="btn-clear" onclick="clearAll()">Clear</button>
+        </div>
+        <div class="kbd-hint">
+          <kbd>⌘</kbd> + <kbd>↵</kbd> to run
+        </div>
+      </div>
+    </div><!-- /left-panel -->
+
+    <!-- Right: Results panel -->
+    <div class="right-panel">
+      <div class="right-scroll">
+
+        <!-- Empty state -->
+        <div class="empty-state" id="empty-state">
+          <div class="empty-icon">🔍</div>
+          <h3>No report yet</h3>
+          <p>Paste a failed prompt, spec, or code snippet on the left and click <strong>Run Autopsy</strong>.</p>
+          <div class="empty-features">
+            <div class="empty-feature">Identifies root cause from a 17-mode failure taxonomy</div>
+            <div class="empty-feature">Evidence-backed — never labels without proof</div>
+            <div class="empty-feature">Causal chain showing how one failure led to the next</div>
+            <div class="empty-feature">Reconstructed spec + actionable remediation plan</div>
+          </div>
+        </div>
+
+        <!-- Loading state -->
+        <div class="loading-state" id="loading-state">
+          <div class="spinner"></div>
+          <p>Analyzing failure modes<span class="loading-dots"><span>.</span><span>.</span><span>.</span></span></p>
+        </div>
+
+        <!-- Error state -->
+        <div class="error-state" id="error-state"></div>
+
+        <!-- Report -->
+        <div class="report-wrapper" id="report-wrapper">
+          <div class="report-topbar">
+            <div class="report-topbar-left">
+              <span class="report-label">Autopsy Report</span>
+              <span class="verdict-badge" id="verdict-badge"></span>
+            </div>
+            <button class="btn-copy" id="btn-copy" onclick="copyReport()">Copy Markdown</button>
+          </div>
+          <div id="report-output"></div>
+          <div class="inconclusive-notice" id="inconclusive-notice">
+            Not enough diagnostic signal to identify a failure mode. Please provide more context —
+            a prompt + output pair, a spec excerpt, or a code snippet with a description of what went wrong.
+          </div>
+        </div>
+
+      </div><!-- /right-scroll -->
+    </div><!-- /right-panel -->
+
+  </div><!-- /app-body -->
+</div><!-- /app -->
+
+<script>
+  const MAX_CHARS = 5000;
+  let selectedType = 'prompt-output';
+  let rawMarkdown = '';
+
+  // ── Example input (TC1 anchor case study) ────────────────────────────────
+  const EXAMPLE = {
+    type: 'spec',
+    text: `We are building an AI agent to pre-screen job candidates by asking questions about missing skills and key requirements like security clearance. The engineering team recommended using a predefined deterministic question set generated per job role at the time of job creation. The customer rejected this approach and insisted the agent generate questions dynamically on the fly using general LLM knowledge, despite repeated technical objections. No binding architectural decision was made. The agent became inconsistent and unauditable. The recruiter and account manager were supposed to make the final hiring decision based on gathered responses but the agent had no guardrails preventing it from implicitly evaluating candidates. The project was eventually abandoned.`
+  };
+
+  // ── Keyboard shortcut ─────────────────────────────────────────────────────
+  function handleKeydown(e) {
+    if ((e.metaKey || e.ctrlKey) && e.key === 'Enter') {
+      e.preventDefault();
+      runAutopsy();
+    }
+  }
+
+  // ── Input type toggle ─────────────────────────────────────────────────────
+  function selectType(btn) {
+    document.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    selectedType = btn.dataset.type;
+  }
+
+  function setTypeByValue(type) {
+    document.querySelectorAll('.toggle-btn').forEach(b => {
+      b.classList.toggle('active', b.dataset.type === type);
+    });
+    selectedType = type;
+  }
+
+  // ── Character counter ─────────────────────────────────────────────────────
+  function updateCounter() {
+    const ta = document.getElementById('user-input');
+    if (ta.value.length > MAX_CHARS) ta.value = ta.value.slice(0, MAX_CHARS);
+    const len = ta.value.length;
+    const el = document.getElementById('char-counter');
+    el.textContent = `${len} / ${MAX_CHARS}`;
+    el.className = 'char-counter';
+    if (len > 4000) el.classList.add('warn');
+    if (len >= MAX_CHARS) el.classList.add('limit');
+  }
+
+  // ── Try an example ────────────────────────────────────────────────────────
+  function loadExample() {
+    document.getElementById('user-input').value = EXAMPLE.text;
+    setTypeByValue(EXAMPLE.type);
+    updateCounter();
+    document.getElementById('user-input').focus();
+  }
+
+  // ── Clear all ─────────────────────────────────────────────────────────────
+  function clearAll() {
+    document.getElementById('user-input').value = '';
+    updateCounter();
+    setTypeByValue('prompt-output');
+    hideReport();
+    hideError();
+    document.getElementById('empty-state').style.display = '';
+  }
+
+  // ── UI state helpers ──────────────────────────────────────────────────────
+  function setLoading(on) {
+    document.getElementById('loading-state').classList.toggle('visible', on);
+    document.getElementById('user-input').disabled = on;
+    document.getElementById('btn-run').disabled = on;
+    document.getElementById('btn-clear').disabled = on;
+    document.getElementById('example-btn').disabled = on;
+    document.querySelectorAll('.toggle-btn').forEach(b => b.disabled = on);
+
+    const btnText = document.getElementById('btn-run-text');
+    btnText.textContent = on ? 'Analyzing...' : 'Run Autopsy';
+
+    if (on) {
+      document.getElementById('empty-state').style.display = 'none';
+      hideReport();
+      hideError();
+    }
+  }
+
+  function showError(msg) {
+    const el = document.getElementById('error-state');
+    el.textContent = msg;
+    el.classList.add('visible');
+    document.getElementById('empty-state').style.display = 'none';
+  }
+
+  function hideError() {
+    const el = document.getElementById('error-state');
+    el.textContent = '';
+    el.classList.remove('visible');
+  }
+
+  function hideReport() {
+    document.getElementById('report-wrapper').classList.remove('visible');
+  }
+
+  // ── Verdict badge ─────────────────────────────────────────────────────────
+  function renderVerdictBadge(verdict) {
+    const badge = document.getElementById('verdict-badge');
+    if (!verdict) { badge.textContent = ''; badge.className = 'verdict-badge'; return; }
+    badge.textContent = verdict;
+    const v = verdict.toLowerCase();
+    badge.className = 'verdict-badge ' + (
+      v === 'critical' ? 'verdict-critical' :
+      v === 'recoverable' ? 'verdict-recoverable' :
+      'verdict-inconclusive'
+    );
+  }
+
+  // ── Show report ───────────────────────────────────────────────────────────
+  function showReport(data) {
+    rawMarkdown = data.report;
+
+    document.getElementById('report-output').innerHTML = marked.parse(data.report);
+    renderVerdictBadge(data.verdict);
+
+    const notice = document.getElementById('inconclusive-notice');
+    notice.classList.toggle('visible', !!data.is_inconclusive);
+
+    document.getElementById('report-wrapper').classList.add('visible');
+    document.getElementById('empty-state').style.display = 'none';
+  }
+
+  // ── Copy to clipboard ─────────────────────────────────────────────────────
+  function copyReport() {
+    navigator.clipboard.writeText(rawMarkdown).then(() => {
+      const btn = document.getElementById('btn-copy');
+      btn.textContent = 'Copied ✓';
+      btn.classList.add('copied');
+      setTimeout(() => { btn.textContent = 'Copy Markdown'; btn.classList.remove('copied'); }, 2000);
+    });
+  }
+
+  // ── Main: runAutopsy ──────────────────────────────────────────────────────
+  async function runAutopsy() {
+    const userInput = document.getElementById('user-input').value.trim();
+    if (!userInput) {
+      showError('Please paste some input before running the autopsy.');
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      const response = await fetch('/api/analyze', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ input_type: selectedType, user_input: userInput })
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.detail || `Server error ${response.status}`);
+      }
+
+      showReport(data);
+
+    } catch (e) {
+      showError(e.message || 'An unexpected error occurred. Is the server running?');
+    } finally {
+      setLoading(false);
+    }
+  }
+</script>
+</body>
+</html>
