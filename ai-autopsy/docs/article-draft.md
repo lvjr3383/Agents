@@ -1,6 +1,6 @@
 # When AI Builds Fail, You're Asking the Wrong Question
 
-*— and the tool we built to ask the right one*
+*— and the tool I built to ask the right one*
 
 ---
 
@@ -10,7 +10,7 @@ Not because the teams doing them aren't smart. Because they do the post-mortem b
 
 I've watched this pattern repeat for two decades — at IBM, at Deloitte, and now deploying AI agents at Salesforce. The failure is almost never in the code. By the time the output looks wrong, the actual root cause is three steps back: a vague requirement, a wrong architectural assumption, a customer decision that overruled engineering judgment with no accountability attached. The code was just following orders.
 
-There is no structured tool for diagnosing AI build failures at the decision layer. So we built one.
+There is no structured tool for diagnosing AI build failures at the decision layer. So I built one.
 
 ---
 
@@ -31,32 +31,11 @@ The critical design principle: **the Judge doesn't label — it proves.** No fai
 
 ## The Taxonomy Is the Product
 
-The application is 400 lines of Python and HTML. The taxonomy took weeks.
+The application is 400 lines of Python and HTML. The taxonomy took longer to design than the application.
 
-17 failure modes across 5 categories, built from real enterprise AI engagements — not textbook definitions. Each mode has a definition, a detection signal, a remediation action, and a real-world example.
+17 failure modes across 5 categories, built from real enterprise AI engagements — not textbook definitions: Prompt & Framing, Spec & Planning, Architecture & Design, Context & Execution, and Decision & Governance. Each mode has a definition, a detection signal, a remediation action, and a real-world example. The full taxonomy is in the repo.
 
-| ID | Category | Failure Mode |
-|---|---|---|
-| FM-01 | Prompt & Framing | Context Gap in Prompting |
-| FM-02 | Prompt & Framing | God-Prompt Overload |
-| FM-03 | Prompt & Framing | Sycophantic Feasibility |
-| FM-04 | Prompt & Framing | Problem Framing Failure |
-| FM-05 | Spec & Planning | Missing Acceptance Criteria |
-| FM-06 | Spec & Planning | Uncontrolled Evolution |
-| FM-07 | Spec & Planning | Business Objective Misalignment |
-| FM-08 | Architecture & Design | Architecture-MVP Mismatch |
-| FM-09 | Architecture & Design | Model Capability Mismatch |
-| FM-10 | Architecture & Design | Integration Reality Gap |
-| FM-11 | Context & Execution | Context Collapse |
-| FM-12 | Context & Execution | Hallucinated Assumptions |
-| FM-13 | Context & Execution | No Verification Loop |
-| FM-14 | Context & Execution | Evaluation Blindness |
-| FM-15 | Decision & Governance | No Decision Ownership |
-| FM-16 | Decision & Governance | False Confidence from Plausible Output |
-| FM-17 | Decision & Governance | Shadow Logic |
-| FM-00 | null | Insufficient Data |
-
-FM-00 deserves a note. The null state — when the input lacks enough signal to diagnose anything — was not an afterthought. It was a deliberate architectural decision. The Judge prompt explicitly tells the model: *choosing FM-00 when the input is vague noise is considered a high-accuracy result, not a failure.* This matters because forcing a classification on insufficient evidence is exactly the behavior we're trying to diagnose in other systems. We couldn't let the diagnostic tool exhibit the same failure.
+FM-00 deserves a note. The null state — when the input lacks enough signal to diagnose anything — was not an afterthought. It was a deliberate architectural decision. The Judge prompt explicitly tells the model: *choosing FM-00 when the input is vague noise is considered a high-accuracy result, not a failure.* This matters because forcing a classification on insufficient evidence is exactly the behavior I'm trying to diagnose in other systems. I couldn't let the diagnostic tool exhibit the same failure.
 
 ---
 
@@ -74,9 +53,9 @@ This case study became Test Case 1 in the validation suite.
 
 ---
 
-## How We Built It: Spec First, Code Second
+## How I Built It: Spec First, Code Second
 
-This project was built for the Devpost Spec-Driven Development Learning Hackathon, which required planning artifacts before code. We took that seriously.
+This project was built for the Devpost Spec-Driven Development Learning Hackathon, which required planning artifacts before code. I took that seriously.
 
 Four documents before a single line of application code:
 
@@ -87,7 +66,7 @@ Four documents before a single line of application code:
 
 The spec-driven approach paid off in a specific way: every architecture decision was made before touching code, which meant zero mid-build pivots on fundamentals. The one exception was moving from a browser-direct API call to a FastAPI proxy backend — a decision that improved security (API key server-side, never in the browser) and was simple to make because the rest of the spec was solid.
 
-The planning artifacts are in the public repo. They're worth reading independently of the application.
+The planning artifacts are in the public repo and worth reading independently of the application.
 
 ### Architecture
 
@@ -109,13 +88,13 @@ The taxonomy loads at server startup. The Judge receives only `id`, `name`, and 
 
 The first version of Test Case 1 failed.
 
-The input we fed the Judge was a clean spec description — the what of the project, not the governance failure that caused it to collapse. The Judge returned FM-01 (Context Gap in Prompting) as the primary. That's a valid finding. It's not the important one.
+The input I fed the Judge was a clean spec description — the what of the project, not the governance failure that caused it to collapse. The Judge returned FM-01 (Context Gap in Prompting) as the primary. That's a valid finding. It's not the important one.
 
-We rewrote the input to include the governance context explicitly — the engineering team's recommendation, the customer rejection, the absence of a binding decision, the project abandonment. With that input, the Judge returned FM-15 (No Decision Ownership) as primary, FM-17 (Shadow Logic) and FM-14 (Evaluation Blindness) as secondaries, and a causal chain that accurately described what happened.
+I rewrote the input to include the governance context explicitly — the engineering team's recommendation, the customer rejection, the absence of a binding decision, the project abandonment. With that input, the Judge returned FM-15 (No Decision Ownership) as primary, FM-17 (Shadow Logic) and FM-14 (Evaluation Blindness) as secondaries, and a causal chain that accurately described what happened.
 
 **The lesson: the quality of the autopsy is directly proportional to the quality of the failure description.**
 
-This is actually the most important thing we learned from building this tool. It's also true of every consulting engagement I've ever been on. Garbage in, garbage out. But structured failure context in, precise diagnosis out. The input shape matters as much as the taxonomy.
+This is actually the most important thing I learned from building this tool. It's also true of every consulting engagement I've ever been on. Garbage in, garbage out. But structured failure context in, precise diagnosis out. The input shape matters as much as the taxonomy.
 
 ---
 
@@ -131,7 +110,7 @@ This is a more dangerous failure than a fake library because it passes a surface
 
 **The FM-00 behavior.**
 
-We pasted "Hello world" as the test input. The Judge returned FM-00 (Insufficient Data), verdict Inconclusive, and provided specific guidance on what additional context would be needed to run a real diagnosis. It did not hallucinate a failure mode for a programming greeting. That's the behavior we designed for, and it held.
+I pasted "Hello world" as the test input. The Judge returned FM-00 (Insufficient Data), verdict Inconclusive, and provided specific guidance on what additional context would be needed to run a real diagnosis. It did not hallucinate a failure mode for a programming greeting. That's the behavior I designed for, and it held.
 
 ---
 
@@ -165,7 +144,7 @@ Generic taxonomies produce generic diagnoses. The 17-mode taxonomy built from en
 
 **Input quality is a UX problem.**
 
-The most important thing we can do for v2 is help users write better inputs. The tool is only as useful as the failure description it receives. A guided input mode — where the tool asks structured questions before running the diagnosis — would significantly improve output quality. That's a v2 feature, but it's the right next thing.
+The most important thing to do for v2 is help users write better inputs. The tool is only as useful as the failure description it receives. A guided input mode — where the tool asks structured questions before running the diagnosis — would significantly improve output quality. That's a v2 feature, but it's the right next thing.
 
 **The null state earns trust.**
 
@@ -185,13 +164,13 @@ Every system that never says "I don't know" is a system you can't trust. FM-00 w
 
 4. **GitHub integration** — analyze PRs, issue threads, and commit histories as input types. The failure signal is often in the conversation around the code, not the code itself.
 
-5. **A public failure library** — anonymized case studies mapped to the taxonomy, searchable by failure mode. This would be the most valuable thing we could put on the internet for AI practitioners.
+5. **A public failure library** — anonymized case studies mapped to the taxonomy, searchable by failure mode. This would be the most valuable thing to put on the internet for AI practitioners.
 
 ---
 
 ## The Real Finding
 
-We set out to build a diagnostic tool for failed AI builds. What we actually built is a structured vocabulary for talking about AI failure.
+I set out to build a diagnostic tool for failed AI builds. What I actually built is a structured vocabulary for talking about AI failure.
 
 That's the thing the industry is missing. Not better models. Not more compute. A shared language for the ways AI projects go wrong at the decision layer — before the first token is generated.
 
